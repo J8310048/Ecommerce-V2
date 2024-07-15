@@ -4,10 +4,10 @@ const cors = require("cors");
 require("dotenv").config();
 const mysql = require("mysql2");
 const connection = mysql.createConnection({
-  host: process.env.hostname,
-  user: process.env.username,
-  password: process.env.database_pass,
-  database: process.env.database_name,
+  host: process.env.DB_host,
+  user: process.env.DB_user,
+  password: process.env.DB_pass,
+  database: process.env.DB_name,
 });
 
 connection.connect(function (err) {
@@ -31,7 +31,7 @@ app.get("/movies", (req, res) => {
   });
 });
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.DB_port || process.env.Local_PORT;
 app.listen(PORT, () => {
   console.log(`CORS-enabled web Server running on port ${PORT}`);
 });
