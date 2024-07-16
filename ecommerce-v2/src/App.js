@@ -16,7 +16,7 @@ function MovieList() {
   useEffect(() => {
     // Fetch movies from backend API
     axios
-      .get(`http://ecommerce-v2-8h8o.onrender.com/movies`)
+      .get(`http://localhost:3306/movies`)
       .then((response) => {
         console.log("API response:", response.data); // Log the response data
         if (Array.isArray(response.data)) {

@@ -32,7 +32,7 @@ app.get("/movies", (req, res) => {
   });
 });
 
-const PORT = process.env.API_PORT;
+const PORT = process.env.DB_port;
 app.listen(PORT, () => {
   console.log(`CORS-enabled web Server running on port ${PORT}`);
 });
