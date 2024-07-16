@@ -16,7 +16,7 @@ function MovieList() {
   useEffect(() => {
     // Fetch movies from backend API
     axios
-.get("http://localhost:3306/movies")
+      .get("http://localhost:3001/movies")
       .then((response) => {
         console.log("API response:", response.data); // Log the response data
         if (Array.isArray(response.data)) {
