@@ -1,8 +1,8 @@
-const express = require("express");
+const express = require("../node_modules/express");
 const app = express();
-const cors = require("cors");
-require("dotenv").config();
-const mysql = require("mysql2");
+const cors = require("../node_modules/cors");
+require("../node_modules/dotenv").config();
+const mysql = require("../node_modules/mysql2");
 const connection = mysql.createConnection({
   host: process.env.DB_host,
   user: process.env.DB_user,
