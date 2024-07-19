@@ -1,8 +1,8 @@
-const express = require("../node_modules/express");
+const express = require("express");
 const app = express();
-const cors = require("../node_modules/cors");
-require("../node_modules/dotenv").config();
-const mysql = require("../node_modules/mysql2");
+const cors = require("cors");
+require("dotenv").config();
+const mysql = require("mysql2");
 const connection = mysql.createConnection({
   host: process.env.DB_host,
   user: process.env.DB_user,
@@ -32,7 +32,7 @@ app.get("/movies", (req, res) => {
   });
 });
 
-const PORT = process.env.DB_port;
+const PORT = 3001;
 app.listen(PORT, () => {
   console.log(`CORS-enabled web Server running on port ${PORT}`);
 });

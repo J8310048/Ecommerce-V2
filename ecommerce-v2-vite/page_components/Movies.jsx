@@ -1,22 +1,14 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-// import "./styles/styles.css";
+import NavBar from "../global_components/NavBar";
 
-function App() {
-  return (
-    <div>
-      <MovieList />
-    </div>
-  );
-}
-
-function MovieList() {
+function Movies() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     // Fetch movies from backend API
     axios
-      .get(`http://localhost:3306/movies`)
+      .get(`http://localhost:3001/movies`)
       .then((response) => {
         console.log("API response:", response.data); // Log the response data
         if (Array.isArray(response.data)) {
@@ -31,25 +23,24 @@ function MovieList() {
   }, []);
 
   return (
-    <div>
+    <div className="text-center mx-auto">
+      <NavBar />
+
       <h1>Movies</h1>
       {movies.map((movie, index) => (
         <div key={index}>
-          <ul>
-            <li>
-              <h3>{movie.name}</h3>
-              <h3>{movie.bid}</h3>
-              <h3>{movie.price}</h3>
-              <h3>{movie.movie_synopsis}</h3>
-              <h3>{movie.release_date}</h3>
-              <h3>{movie.genre_id}</h3>
-              <h3>{movie.availability}</h3>
-            </li>
-          </ul>
+          <img src={movie.movie_poster} alt={movie.name} />
+          <h3>Name: {movie.name}</h3>
+          <h3>Price: {movie.price}</h3>
+          <h3>Bid Amount: {movie.bid}</h3>
+          <h3>Movie Synopsis: {movie.movie_synopsis}</h3>
+          <h3>Release Date: {movie.release_date}</h3>
+          <h3>Genre: {movie.genre_id}</h3>
+          <h3>Availability: {movie.availability}</h3>
         </div>
       ))}
     </div>
   );
 }
 
-export default App;
+export default Movies;
