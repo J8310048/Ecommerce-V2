@@ -1,10 +1,11 @@
 import { NavLink } from "react-router-dom";
+import Socials from "./Social-Icons";
 
 function Footer() {
   return (
     <div>
-      <footer className="FooterLinks">
-        <ul>
+      <footer className="phonemin:flex flex-col justify-center items-center">
+        <ul className="phonemin:flex inline-flex justify-center">
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
@@ -15,16 +16,10 @@ function Footer() {
             <NavLink to="/contact">Contact Us</NavLink>
           </li>
         </ul>
+        <div className="Socials">
+        <Socials />
+      </div>
       </footer>
-      <div className="Socials"></div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={Home} />
-          <Route path="/movies" element={MovieList} />
-          <Route path="/contact" element={Contact} />
-          {/* <Route path="/*" element={<PageNotFound />} /> */}
-        </Routes>
-      </BrowserRouter>
     </div>
   );
 }

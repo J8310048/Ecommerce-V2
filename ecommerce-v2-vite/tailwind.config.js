@@ -25,8 +25,19 @@ module.exports = {
 
       desktop: '1280px',
       // => @media (min-width: 1280px) { ... }
+    }, colors: {
+      'rich-black' : "#071013",
+      'pacific-cyan' : '#23b5d3',
+      'moonstone' : '#75abbc',
+      'cadet gray' : '#a2aebb',
+      'platinum' : '#dfe0e2',
+      'ultra violet' : '#53599a',
+      'ultra violet' : '#53599a',
+      'dark navy blue' : '#000435',
     },
+
     extend: {},
   },
+  
   plugins: [],
 };

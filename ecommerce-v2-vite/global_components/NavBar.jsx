@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
+import Logo from "../global_components/Logo";
 
 function NavBar() {
   return (
-    <div>
+    <div className=" tabletmin:flex inline-flex justify-between items-center">
+      <Logo />
+      <div></div>
       <nav>
-        <ul>
+        <ul className="tabletmin:flex inline-flex">
           <li>
             <Link to="/">Home</Link>
           </li>
