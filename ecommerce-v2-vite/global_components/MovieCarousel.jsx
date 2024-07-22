@@ -58,7 +58,7 @@ function MovieCarousel() {
           {movies.map((movie, index) => (
             <div key={index} className="p-2">
               <img
-                className="w-96 h-auto cursor-pointer"
+                className="w-1/3 h-auto cursor-pointer"
                 src={movie.poster}
                 alt={movie.title}
                 onClick={() => handleMovieClick(movie.video)}
@@ -71,7 +71,7 @@ function MovieCarousel() {
         <div className="dots text-center mt-2"></div>
       </div>
       <div className="movie-background absolute inset-0 z-[-1]">
-        <video className="w-full h-auto object-cover" autoPlay muted loop key={currentVideo}>
+        <video className="w-full h-full object-cover" autoPlay muted loop key={currentVideo}>
           <source src={currentVideo} type="video/mp4" />
         </video>
       </div>

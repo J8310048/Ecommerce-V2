@@ -32,7 +32,7 @@ function Movies() {
             <h3>Name: {movie.name}</h3>
             <h3>Price: {movie.price}</h3>
             <h3>Bid Amount: {movie.bid}</h3>
-            <h3>Movie Synopsis: {movie.movie_synopsis}</h3>
+            <h3 className="pl-5 pr-5">Movie Synopsis: {movie.movie_synopsis}</h3>
             <h3>Release Date: {movie.release_date}</h3>
             <h3>Genre: {movie.genre_id}</h3>
             <h3>Availability: {movie.availability}</h3>

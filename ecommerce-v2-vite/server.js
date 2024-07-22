@@ -1,9 +1,13 @@
-const express = require("express");
-const path = require("path"); // Import path module
+import express from "express";
+import path from "path";
+import cors from "cors";
+import dotenv from "dotenv";
+import mysql from "mysql2";
+
+// Initialize dotenv
+dotenv.config();
+
 const app = express();
-const cors = require("cors");
-require("dotenv").config();
-const mysql = require("mysql2");
 
 const connection = mysql.createConnection({
   host: process.env.DB_host,
