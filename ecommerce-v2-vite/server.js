@@ -1,5 +1,4 @@
 import express from "express";
-import path from "path";
 import cors from "cors";
 import dotenv from "dotenv";
 import mysql from "mysql2";
@@ -19,7 +18,7 @@ const connection = mysql.createConnection({
 
 connection.connect(function (err) {
   if (err) {
-    console.error("Error connecting this s: " + err.stack);
+    console.error("Error connecting: " + err.stack);
     return;
   }
   console.log("Connected to MySQL database as id " + connection.threadId);
@@ -38,7 +37,7 @@ app.get("/", (req, res) => {
   });
 });
 
-const PORT = 3001;
+const PORT = process.env.Local_Port;
 app.listen(PORT, () => {
   console.log(`CORS-enabled web Server running on port ${PORT}`);
 });
