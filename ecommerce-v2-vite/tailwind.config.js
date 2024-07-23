@@ -32,11 +32,12 @@ module.exports = {
       'cadet gray' : '#a2aebb',
       'platinum' : '#dfe0e2',
       'ultra violet' : '#53599a',
-      'ultra violet' : '#53599a',
       'dark navy blue' : '#000435',
     },
 
-    extend: {},
+    extend: {
+      border: "border-2 border-rich-black border-solid"
+    },
   },
   
   plugins: [],
