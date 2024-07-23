@@ -3,12 +3,14 @@ import cors from "cors";
 import dotenv from "dotenv";
 import mysql from "mysql2";
 
-// Initialize dotenv
+
 dotenv.config();
 
 const app = express();
 
-const connection = mysql.createConnection({
+// Configured MySQL connection pool
+const pool = mysql.createPool({
+  connectionLimit: 10,
   host: process.env.DB_host,
   user: process.env.DB_user,
   port: process.env.DB_port,
@@ -16,28 +18,33 @@ const connection = mysql.createConnection({
   database: process.env.DB_name,
 });
 
-connection.connect(function (err) {
-  if (err) {
-    console.error("Error connecting: " + err.stack);
-    return;
-  }
-  console.log("Connected to MySQL database as id " + connection.threadId);
-});
 
 app.use(cors());
 
+
 app.get("/", (req, res) => {
-  connection.query("SELECT * FROM Movies", (error, rows) => {
-    if (error) {
-      console.error("Error retrieving information", error);
-      res.status(500).json({ error: "Error retrieving information" });
+  pool.getConnection((err, connection) => {
+    if (err) {
+      console.error("Error getting connection from pool:", err);
+      res.status(500).json({ error: "Internal Server Error" });
       return;
     }
-    res.json(rows);
+
+    connection.query("SELECT * FROM Movies", (error, rows) => {
+      connection.release(); // Release the connection back to the pool
+
+      if (error) {
+        console.error("Error retrieving information:", error);
+        res.status(500).json({ error: "Error retrieving information" });
+        return;
+      }
+
+      res.json(rows);
+    });
   });
 });
 
-const PORT = process.env.Local_Port;
+const PORT = process.env.Local_Port || 3000;
 app.listen(PORT, () => {
-  console.log(`CORS-enabled web Server running on port ${PORT}`);
+  console.log(`CORS-enabled web server running on port ${PORT}`);
 });
