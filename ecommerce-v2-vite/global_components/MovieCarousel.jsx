@@ -58,7 +58,7 @@ function MovieCarousel() {
           {movies.map((movie, index) => (
             <div key={index} className="p-2">
               <img
-                className="w-1/4 h-auto cursor-pointer mt-64 rounded-3xl"
+                className="w-1/5 h-auto cursor-pointer mt-96 rounded-3xl"
                 src={movie.poster}
                 alt={movie.title}
                 onClick={() => handleMovieClick(movie.video)}
