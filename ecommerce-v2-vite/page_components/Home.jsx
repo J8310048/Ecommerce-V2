@@ -14,9 +14,9 @@ function Home() {
             <p className="phonemin:text-m tabletmin:text-2xl">The premier destination for LaserDisc collectors and enthusiasts. Our passion for the classic, the rare, and the nostalgic is at the heart of everything we do. We believe that every LaserDisc tells a story, and we are here to help you find those rare gems that complete your collection.</p>
             </div>
 
-            <img src="/public/LaserDisc-Homepage-Photos/laserdisc-at-home.png" alt="LaserDisc Photo" className="rounded-3xl"/>
+            <img src="/LaserDisc-Homepage-Photos/laserdisc-at-home.png" alt="LaserDisc Photo" className="rounded-3xl"/>
 
-            <img src="/public/LaserDisc-Homepage-Photos/laserdisc-player1.png" alt="LaserDisc Photo" className="rounded-3xl"/>
+            <img src="/LaserDisc-Homepage-Photos/laserdisc-player1.png" alt="LaserDisc Photo" className="rounded-3xl"/>
 
           <div>
             <h2 className="phonemin:py-10 text-4xl tabletmin:text-6xl">Why We Exist</h2>
@@ -29,9 +29,9 @@ function Home() {
             <p className="phonemin:text-m tabletmin:text-2xl">We understand the thrill of the hunt and the joy of discovery. That's why we meticulously source our inventory, guaranteeing that every item meets the highest standards of quality and authenticity. Whether you're a seasoned collector or new to the world of LaserDiscs, we offer a diverse range of titles that cater to all tastes and interests.</p>
             </div>
 
-            <img src="/public/LaserDisc-Homepage-Photos/LaserDisc.png" alt="LaserDisc Photo" className="rounded-3xl"/>
+            <img src="/LaserDisc-Homepage-Photos/LaserDisc.png" alt="LaserDisc Photo" className="rounded-3xl"/>
 
-            <img src="/public/LaserDisc-Homepage-Photos/Pioneer_CLD-1030_Laserdisc_Player_(Open_tray_with_disc).png" alt="LaserDisc Photo" className="rounded-3xl"/>
+            <img src="/LaserDisc-Homepage-Photos/Pioneer_CLD-1030_Laserdisc_Player_(Open_tray_with_disc).png" alt="LaserDisc Photo" className="rounded-3xl"/>
 
           <div>
             <h2 className="phonemin:py-10 text-4xl tabletmin:text-6xl">Join Our Community</h2>
