@@ -4,8 +4,8 @@ import Socials from "./Social-Icons";
 function Footer() {
   return (
     <div className="bg-black py-10 text-white">
-      <footer className="phonemin: flex flex-col justify-center items-center">  
-        <ul className="phonemin: flex justify-center space-x-4">
+      <footer className="flex flex-col items-center justify-center">
+        <ul className="flex space-x-4">
           <li>
             <NavLink to="/" className="hover:underline">Home</NavLink>
           </li>
@@ -17,8 +17,8 @@ function Footer() {
           </li>
         </ul>
         <div>
-        <Socials/>
-      </div>
+          <Socials />
+        </div>
       </footer>
     </div>
   );

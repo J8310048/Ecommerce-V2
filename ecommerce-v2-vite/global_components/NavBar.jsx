@@ -1,24 +1,54 @@
-import { Link } from "react-router-dom";
-import Logo from "../global_components/Logo";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import Logo from '../global_components/Logo';
 
 function NavBar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className=" tabletmin:flex inline-flex justify-between items-center bg-white text-black">
-      <Logo />
-      <div></div>
-      <nav>
-        <ul className="tabletmin:flex inline-flex">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/movies">Movies</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact Us</Link>
-          </li>
-        </ul>
-      </nav>
+    <div className="bg-white text-black">
+      <div className="flex justify-between items-center p-4">
+        <Logo />
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="tabletmin:hidden focus:outline-none"
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+            ></path>
+          </svg>
+        </button>
+        <nav className="hidden tabletmin:flex space-x-4">
+          <Link to="/">Home</Link>
+          <Link to="/movies">Movies</Link>
+          <Link to="/contact">Contact Us</Link>
+        </nav>
+      </div>
+      {isOpen && (
+        <nav className="tabletmin:hidden">
+          <ul className="flex flex-col items-center p-4">
+            <li className="p-2">
+              <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
+            </li>
+            <li className="p-2">
+              <Link to="/movies" onClick={() => setIsOpen(false)}>Movies</Link>
+            </li>
+            <li className="p-2">
+              <Link to="/contact" onClick={() => setIsOpen(false)}>Contact Us</Link>
+            </li>
+          </ul>
+        </nav>
+      )}
     </div>
   );
 }

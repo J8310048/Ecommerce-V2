@@ -14,18 +14,21 @@ function ContactForm() {
   };
 
   return (
-    <section>
-      <div >
-        <form onSubmit={handleSubmit(onSubmit)} className="phonemax: flex flex-col mt-10 relative m-0 justify-center mx-20">
+    <section className="p-4 phonemin:p-8 tabletmin:p-12 desktop:p-16">
+      <div className="flex justify-center">
+        <form 
+          onSubmit={handleSubmit(onSubmit)} 
+          className="flex flex-col w-full max-w-lg"
+        >
           <input 
             {...register("FirstName", { 
               required: "First Name is required", 
               maxLength: { value: 50, message: "First Name cannot exceed 50 characters" }
             })} 
             placeholder="Firstname" 
-            className="phonemin: border mb-4  pl-2"
+            className="border mb-4 p-2 rounded"
           />
-          {errors.FirstName && <p className="text-red-500 ml-5">{errors.FirstName.message}</p>}
+          {errors.FirstName && <p className="text-red-500">{errors.FirstName.message}</p>}
           
           <input 
             {...register("Email", { 
@@ -36,23 +39,24 @@ function ContactForm() {
               }
             })} 
             placeholder="Email" 
-            className="phonemin: border mb-4  pl-2"
+            className="border mb-4 p-2 rounded"
           />
-          {errors.Email && <p className="text-red-500 ml-5">{errors.Email.message}</p>}
+          {errors.Email && <p className="text-red-500">{errors.Email.message}</p>}
           
           <textarea 
             {...register("Comment", { 
               maxLength: { value: 500, message: "Comment cannot exceed 500 characters" }
             })} 
             placeholder="Comment" 
-            className="phonemin: border mb-4  pl-2"
-            rows="10"
+            className="border mb-4 p-2 rounded"
+            rows="4"
           />
-          {errors.Comment && <p className="text-red-500 ml-5">{errors.Comment.message}</p>}
+          {errors.Comment && <p className="text-red-500">{errors.Comment.message}</p>}
           
           <input 
             type="submit" 
-            className="phonemax: border rounded-full text-center bg-white text-black mx-10 p-1.5  tabletmax: "
+            value="Submit"
+            className="border rounded-full text-center bg-white text-black p-2 cursor-pointer"
           />
         </form>
       </div>

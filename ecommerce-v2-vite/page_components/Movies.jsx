@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MoviesFetch from "../global_components/Movies_Fetch";
-import NavBar from "../global_components/NavBar";
 import Filter from "../global_components/Filter";  // Import the Filter component
-import Footer from "../global_components/Footer";
+
 
 function Movies() {  
   const [movies, setMovies] = useState([]);
@@ -23,10 +22,9 @@ function Movies() {
     <html className="bg-blue-950">
       <div className=" text-white">
       <MoviesFetch setMovies={setMovies} setGenres={setGenres} />
-      <NavBar />
       <h1 className="phonemin:text-center py-10 text-4xl tabletmin:text-6xl">Movies</h1>
       <Filter filter={filter} setFilter={setFilter} genres={genres} />  {/* Pass genres to Filter */}
-      <div className="phonemin:grid grid-flow-row-dense grid-cols-2 grid-rows-3 mx-0 relative tabletmin:grid-cols-3">
+      <div className="phonemin:grid grid-flow-row-dense grid-cols-1 mx-0 relative tabletmin:grid-cols-3 grid-rows-3">
         {filteredMovies.map((movie, index) => (
           <div key={index} className="phonemin:text-center m-5 bg-white rounded-3xl space-y-10">
             <img src={movie.movie_poster} alt={movie.name} className="phonemin:size-auto rounded-3xl"/>
@@ -40,7 +38,6 @@ function Movies() {
           </div>
         ))}
       </div>
-      <Footer />
     </div>
     </html>
     

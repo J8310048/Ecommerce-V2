@@ -1,11 +1,8 @@
-import NavBar from "../global_components/NavBar";
-import Footer from "../global_components/Footer";
 import MovieCarousel from "../global_components/MovieCarousel";
 function Home() {
   return (
     <html className="min-h-screen">
       <section>
-      <NavBar />
       <MovieCarousel />
       <div className="bg-blue-950  text-center text-white">
         <article className="phonemax:px-16 grid grid-flow-row grid-cols-1 gap-5 mx-10 phonemax:grid-rows-8 justify-center items-center tabletmax:grid-cols-2 tabletmax:grid-rows-4 ">
@@ -42,7 +39,6 @@ function Home() {
 </article>
         <p className="phonemin:text-m p-20 tabletmin:text-2xl">Thank you for visiting <span>Laser Focus</span>. We are excited to help you discover your next treasured find.</p>
       </div>
-      <Footer />
     </section>
     </html>
     
