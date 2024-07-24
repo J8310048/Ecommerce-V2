@@ -11,15 +11,23 @@ const Filter = ({ filter, setFilter, genres }) => {
 
   return (
     <div>
-      <label>Genre:</label>
+      <label className='text-white'>Genre:</label>
       <select value={filter.genre} onChange={handleGenreChange}>
         <option value="">All</option>
+        <option value="">Action & Adventure</option>
+        <option value="">Comedy</option>
+        <option value="">Sci-Fi & Fantasy</option>
+        <option value="">Horror</option>
+        <option value="">Animated</option>
+        <option value="">Thriller & Mystery</option>
+        <option value="">Children's & Family</option>
+        <option value="">Drama</option>
         {genres.map((genre) => (
           <option key={genre.id} value={genre.id}>{genre.name}</option>
         ))}
       </select>
 
-      <label>Max Price:</label>
+      <label className='text-white'>Max Price:</label>
       <input type="number" value={filter.price} onChange={handlePriceChange} placeholder="Max Price" />
     </div>
   );

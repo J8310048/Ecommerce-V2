@@ -20,11 +20,11 @@ function Movies() {
 
   return (
     <html className="bg-blue-950">
-      <div className=" text-white">
+      <div>
       <MoviesFetch setMovies={setMovies} setGenres={setGenres} />
-      <h1 className="phonemin:text-center py-10 text-4xl tabletmin:text-6xl">Movies</h1>
+      <h1 className="phonemin:text-center py-10 text-4xl tabletmin:text-6xl text-white">Movies</h1>
       <Filter filter={filter} setFilter={setFilter} genres={genres} />  {/* Pass genres to Filter */}
-      <div className="phonemin:grid grid-flow-row-dense grid-cols-1 mx-0 relative tabletmin:grid-cols-3 grid-rows-3">
+      <div className="phonemin:grid grid-flow-row-dense grid-cols-1 mx-0 relative tabletmin:grid-cols-3 grid-rows-3 items-start">
         {filteredMovies.map((movie, index) => (
           <div key={index} className="phonemin:text-center m-5 bg-white rounded-3xl space-y-10">
             <img src={movie.movie_poster} alt={movie.name} className="phonemin:size-auto rounded-3xl"/>

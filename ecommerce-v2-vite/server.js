@@ -44,6 +44,28 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/genres", (req, res) => {
+  pool.getConnection((err, connection) => {
+    if (err) {
+      console.error("Error getting connection from pool:", err);
+      res.status(500).json({ error: "Internal Server Error" });
+      return;
+    }
+
+    connection.query("SELECT * FROM Genre", (error, rows) => {
+      connection.release(); // Release the connection back to the pool
+
+      if (error) {
+        console.error("Error retrieving information:", error);
+        res.status(500).json({ error: "Error retrieving information" });
+        return;
+      }
+
+      res.json(rows);
+    });
+  });
+});
+
 const PORT = process.env.Local_Port || 3000;
 app.listen(PORT, () => {
   console.log(`CORS-enabled web server running on port ${PORT}`);
