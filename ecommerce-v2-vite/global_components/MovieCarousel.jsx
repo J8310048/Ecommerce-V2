@@ -5,27 +5,27 @@ import './MovieCarousel.css';
 
 const movies = [
   {
-    poster: '/Product-Photos/MissionImpossible(Front).png',
+    poster: '/CarouselPosters/mission_impossible_1996_teaser_original_film_art_5000x.png',
     video: '/CarouselClips/Mission Impossible Clip.mp4',
     title: 'Mission Impossible'
   },
   {
-    poster: '/Product-Photos/ToyStory(Front).png',
+    poster: '/CarouselPosters/Toy-Story-Move-Poster-Slider.png',
     video: '/CarouselClips/Toy Story Clip.mp4',
     title: 'Toy Story'
   },
   {
-    poster: '/Product-Photos/TheLionKing(Front).png',
+    poster: '/CarouselPosters/lion-king-movie-poster-slider.png',
     video: '/CarouselClips/Lion King Clip.mp4',
     title: 'Lion King'
   },
   {
-    poster: '/Product-Photos/ET(Front).png',
+    poster: '/CarouselPosters/ET-movie-poster-slider.png',
     video: '/CarouselClips/ET Clip.mp4',
     title: 'E.T. The Extra Terrestrial'
   },
   {
-    poster: '/Product-Photos/TheGodfather.png',
+    poster: '/CarouselPosters/The-Godfather-Original-Movie-Poster-poster-Frameless-Gift-12-x-18-inch-30cm-x-46cm_c6df3fd5-1e9c-49ca-8cb6-1af6078df4c2.b21fd8bc877c5645b9340a53580833a2.webp',
     video: '/CarouselClips/Godfather Clip.mp4', 
     title: 'The GodFather'
   },
@@ -58,11 +58,12 @@ function MovieCarousel() {
           {movies.map((movie, index) => (
             <div key={index} className="p-2">
               <img
-                className="w-1/3 h-auto cursor-pointer"
+                className="w-1/4 h-auto cursor-pointer mt-64"
                 src={movie.poster}
                 alt={movie.title}
                 onClick={() => handleMovieClick(movie.video)}
               />
+              
             </div>
           ))}
         </div>

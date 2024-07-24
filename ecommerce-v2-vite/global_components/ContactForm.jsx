@@ -15,15 +15,15 @@ function ContactForm() {
 
   return (
     <section>
-      <div>
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col mt-10">
+      <div >
+        <form onSubmit={handleSubmit(onSubmit)} className="phonemax: flex flex-col mt-10 relative m-0 justify-center mx-20">
           <input 
             {...register("FirstName", { 
               required: "First Name is required", 
               maxLength: { value: 50, message: "First Name cannot exceed 50 characters" }
             })} 
             placeholder="Firstname" 
-            className="phonemin: border mb-4 ml-5 mr-5 pl-2"
+            className="phonemin: border mb-4  pl-2"
           />
           {errors.FirstName && <p className="text-red-500 ml-5">{errors.FirstName.message}</p>}
           
@@ -36,7 +36,7 @@ function ContactForm() {
               }
             })} 
             placeholder="Email" 
-            className="phonemin: border mb-4 ml-5 mr-5 pl-2"
+            className="phonemin: border mb-4  pl-2"
           />
           {errors.Email && <p className="text-red-500 ml-5">{errors.Email.message}</p>}
           
@@ -45,14 +45,14 @@ function ContactForm() {
               maxLength: { value: 500, message: "Comment cannot exceed 500 characters" }
             })} 
             placeholder="Comment" 
-            className="phonemin: border mb-4 ml-5 mr-5 pl-2"
+            className="phonemin: border mb-4  pl-2"
             rows="10"
           />
           {errors.Comment && <p className="text-red-500 ml-5">{errors.Comment.message}</p>}
           
           <input 
             type="submit" 
-            className="phonemin: border ml-20 mr-20"
+            className="phonemax: border rounded-full text-center bg-white text-black mx-10 p-1.5  tabletmax: "
           />
         </form>
       </div>

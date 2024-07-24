@@ -3,7 +3,7 @@ import Logo from "../global_components/Logo";
 
 function NavBar() {
   return (
-    <div className=" tabletmin:flex inline-flex justify-between items-center">
+    <div className=" tabletmin:flex inline-flex justify-between items-center bg-white text-black">
       <Logo />
       <div></div>
       <nav>

@@ -20,11 +20,12 @@ function Movies() {
   }, [filter, movies]);
 
   return (
-    <div>
+    <html className="bg-blue-950">
+      <div className=" text-white">
       <MoviesFetch setMovies={setMovies} setGenres={setGenres} />
       <NavBar />
       <h1 className="text-center">Movies</h1>
-      <Filter filter={filter} setFilter={setFilter} genres={genres} />  {/* Pass genres to Filter */}
+      <Filter filter={filter} setFilter={setFilter} genres={genres} className="text-black"/>  {/* Pass genres to Filter */}
       <div className="phonemin:grid grid-flow-row-dense grid-cols-2 grid-rows-3 mx-0 relative tabletmin:grid-cols-3">
         {filteredMovies.map((movie, index) => (
           <div key={index} className="phonemin:text-center m-5">
@@ -41,6 +42,8 @@ function Movies() {
       </div>
       <Footer />
     </div>
+    </html>
+    
   );
 }
 

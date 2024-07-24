@@ -3,8 +3,8 @@ import Socials from "./Social-Icons";
 
 function Footer() {
   return (
-    <div>
-      <footer className="phonemin: flex flex-col justify-center items-center sticky bottom-0">  
+    <div className="bg-black py-10 text-white">
+      <footer className="phonemin: flex flex-col justify-center items-center">  
         <ul className="phonemin: flex justify-center space-x-4">
           <li>
             <NavLink to="/" className="hover:underline">Home</NavLink>
