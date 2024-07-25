@@ -5,7 +5,7 @@ function GenresFetch({ setGenres }) {
   useEffect(() => {
     // Fetch movies from backend API
     axios
-      .get(`http://localhost:3001/genres`)
+      .get(`https://laserfocus-disc-and-co-backend-server.onrender.com/genres`)
       .then((response) => {
         console.log("API response:", response.data); // Log the response data
         if (Array.isArray(response.data)) {
