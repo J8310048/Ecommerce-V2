@@ -67,8 +67,8 @@ function MovieCarousel() {
             </div>
           ))}
         </div>
-        <button className="glider-prev absolute top-1/2 transform -translate-y-1/2 left-0 bg-gray-800 text-white p-2">«</button>
-        <button className="glider-next absolute top-1/2 transform -translate-y-1/2 right-0 bg-gray-800 text-white p-2">»</button>
+        <button className="glider-prev absolute top-1/2 transform -translate-y-1/2 left-0 bg-slate-400 text-gray-800 p-2 rounded-lg">«</button>
+        <button className="glider-next absolute top-1/2 transform -translate-y-1/2 right-0 bg-slate-400 text-gray-800 p-2 rounded-lg">»</button>
         <div className="dots text-center mt-2"></div>
       </div>
       <div className="movie-background absolute inset-0 z-[-1]">
