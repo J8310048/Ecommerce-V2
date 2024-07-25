@@ -66,7 +66,10 @@ app.get("/genres", (req, res) => {
   });
 });
 
+
+
 const PORT = process.env.Local_Port || 3000;
 app.listen(PORT, () => {
   console.log(`CORS-enabled web server running on port ${PORT}`);
 });
+

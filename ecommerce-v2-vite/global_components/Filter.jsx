@@ -14,14 +14,6 @@ const Filter = ({ filter, setFilter, genres }) => {
       <label className='text-white'>Genre:</label>
       <select value={filter.genre} onChange={handleGenreChange}>
         <option value="">All</option>
-        <option value="">Action & Adventure</option>
-        <option value="">Comedy</option>
-        <option value="">Sci-Fi & Fantasy</option>
-        <option value="">Horror</option>
-        <option value="">Animated</option>
-        <option value="">Thriller & Mystery</option>
-        <option value="">Children's & Family</option>
-        <option value="">Drama</option>
         {genres.map((genre) => (
           <option key={genre.id} value={genre.id}>{genre.name}</option>
         ))}

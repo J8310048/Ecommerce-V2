@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MoviesFetch from "../global_components/Movies_Fetch";
+import GenresFetch from "../global_components/Genres_Fetch";
 import Filter from "../global_components/Filter";  // Import the Filter component
 
 
@@ -21,7 +22,8 @@ function Movies() {
   return (
     <html className="bg-blue-950">
       <div>
-      <MoviesFetch setMovies={setMovies} setGenres={setGenres} />
+      <MoviesFetch setMovies={setMovies} />
+      <GenresFetch setGenres={setGenres} /> {/* Fetch genres */}
       <h1 className="phonemin:text-center py-10 text-4xl tabletmin:text-6xl text-white">Movies</h1>
       <Filter filter={filter} setFilter={setFilter} genres={genres} />  {/* Pass genres to Filter */}
       <div className="phonemin:grid grid-flow-row-dense grid-cols-1 mx-0 relative tabletmin:grid-cols-3 grid-rows-3 items-start">
