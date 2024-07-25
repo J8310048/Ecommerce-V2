@@ -1,18 +1,13 @@
 import { useEffect } from "react";
 import axios from "axios";
 
-function GenresFetch({ setGenres }) {
+function GenreFetch({ setGenres }) {
   useEffect(() => {
-    // Fetch movies from backend API
     axios
       .get(`https://laserfocus-disc-and-co-backend-server.onrender.com/genres`)
       .then((response) => {
-        console.log("API response:", response.data); // Log the response data
-        if (Array.isArray(response.data)) {
-          setGenres(response.data); // Update movies state with data from backend if it's an array
-        } else {
-          console.error("Expected an array but got:", typeof response.data);
-        }
+        console.log("API response:", response.data);
+        setGenres(response.data); // Update genres state with data from backend
       })
       .catch((error) => {
         console.error("Error fetching genres:", error);
@@ -22,4 +17,6 @@ function GenresFetch({ setGenres }) {
   return null; // This component doesn't need to render anything
 }
 
-export default GenresFetch;
+export default GenreFetch;
+
+//

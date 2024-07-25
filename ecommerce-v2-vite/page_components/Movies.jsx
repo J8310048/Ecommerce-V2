@@ -1,14 +1,25 @@
 import React, { useState, useEffect } from "react";
 import MoviesFetch from "../global_components/Movies_Fetch";
-import GenresFetch from "../global_components/Genres_Fetch";
-import Filter from "../global_components/Filter";  // Import the Filter component
+import GenreFetch from "../global_components/Genres_Fetch";
+import Filter from "../global_components/Filter";
+import axios from "axios";
 
-
-function Movies() {  
+function Movies() {
   const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [filter, setFilter] = useState({ genre: '', price: '' });
   const [genres, setGenres] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`https://laserfocus-disc-and-co-backend-server.onrender.com/movies-by-genre/${filter.genre}`)
+      .then((response) => {
+        setMovies(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching movies:", error);
+      });
+  }, [filter.genre]);
 
   useEffect(() => {
     setFilteredMovies(movies.filter(movie => {
@@ -20,12 +31,11 @@ function Movies() {
   }, [filter, movies]);
 
   return (
-    <html className="bg-blue-950">
-      <div>
+    <div className="bg-blue-950">
       <MoviesFetch setMovies={setMovies} />
-      <GenresFetch setGenres={setGenres} /> {/* Fetch genres */}
+      <GenreFetch setGenres={setGenres} />
       <h1 className="phonemin:text-center py-10 text-4xl tabletmin:text-6xl text-white">Movies</h1>
-      <Filter filter={filter} setFilter={setFilter} genres={genres} />  {/* Pass genres to Filter */}
+      <Filter filter={filter} setFilter={setFilter} genres={genres} />
       <div className="phonemin:grid grid-flow-row-dense grid-cols-1 mx-0 relative tabletmin:grid-cols-3 grid-rows-3 items-start">
         {filteredMovies.map((movie, index) => (
           <div key={index} className="phonemin:text-center m-5 bg-white rounded-3xl space-y-10">
@@ -41,8 +51,6 @@ function Movies() {
         ))}
       </div>
     </div>
-    </html>
-    
   );
 }
 
