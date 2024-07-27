@@ -15,6 +15,7 @@
 - Gilder.js (Slider on the Homepage)
 - TailWind.CSS (Styling)
 - useForm (Contact Form)
+- SocialIcons (social media icons)
 
 The inspiration for this project was selling rare items to collectors. The LaserDisc is a discontinued movie format that halted production in 2005 due to the rise of DVD. Only films that were made in this format range were from the 70s to the early 2000s.
 
