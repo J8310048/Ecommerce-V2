@@ -26,16 +26,14 @@ function Movies() {
 
 
 console.log(movies);
-  return (    <div className="bg-blue-950">
+  return (    
+  <div className="bg-blue-950">
       <MoviesFetch setMovies={setMovies} />
       <GenreFetch setGenres={setGenres} />
       <h1 className="phonemin:text-center py-10 text-4xl tabletmin:text-6xl text-white">Movies</h1>
       <Filter filter={filter} setFilter={setFilter} genres={genres} />
-      <div className="phonemin:grid grid-flow-row-dense grid-cols-1 mx-0 relative tabletmin:grid-cols-3 grid-rows-3 items-start">
-        {movies.map((movie, index) => (
-          <div key={index} className="phonemin:text-center m-5 bg-white rounded-3xl space-y-10">
       <div className="phonemin:grid gap-x-5 grid-flow-row-dense grid-cols-1 mx-0 relative tabletmin:grid-cols-3 grid-rows-3 items-start">
-        {filteredMovies.map((movie, index) => (
+        {movies.map((movie, index) => (
           <div key={index} className="phonemin:text-center m-10 bg-white rounded-3xl space-y-10 overflow-scroll object-contain h-4/5">
             <img src={movie.movie_poster} alt={movie.name} className="phonemin:size-auto rounded-3xl"/>
             <h3 className=" phonemin:text-xl tabletmin:text-lg"><span className="phonemin:text-2xl font-bold tabletmin:text-xl">Name:</span> {movie.name}</h3>
@@ -46,13 +44,10 @@ console.log(movies);
             <h3 className=" phonemin:text-xl tabletmin:text-lg"><span className="phonemin:text-2xl font-bold tabletmin:text-xl">Genre:</span> {movie.genre_id}</h3>
             <h3 className=" phonemin:text-xl tabletmin:text-lg"><span className="phonemin:text-2xl font-bold tabletmin:text-xl">Availability:</span> <span className="text-green-500">{movie.availability}</span></h3>
           </div>
-        ))}
-     
-  ))}
+          ))}
    </div>
     </div>
-  )
-;
+  );
 }
 
 export default Movies;
