@@ -6,13 +6,16 @@ import axios from "axios";
 
 function Movies() {
   const [movies, setMovies] = useState([]);
-  const [filteredMovies, setFilteredMovies] = useState([]);
   const [filter, setFilter] = useState({ genre: '', price: '' });
   const [genres, setGenres] = useState([]);
 
   useEffect(() => {
+    let url = `https://laserfocus-disc-and-co-backend-server.onrender.com`;
+    if(filter.genre) {
+      url += `/movies-by-genre/${filter.genre}?priceMax=${filter.price}` //pass priceMax into your query. Research for tomorrow. hint: console.log request on /movies-by-genre on server
+    }
     axios
-      .get(`https://laserfocus-disc-and-co-backend-server.onrender.com/movies-by-genre/${filter.genre}`)
+      .get(url)
       .then((response) => {
         setMovies(response.data);
       })
@@ -21,6 +24,8 @@ function Movies() {
       });
   }, [filter.genre]);
 
+
+console.log(movies);
   return (
     <div className="bg-blue-950">
       <MoviesFetch setMovies={setMovies} />
@@ -28,7 +33,7 @@ function Movies() {
       <h1 className="phonemin:text-center py-10 text-4xl tabletmin:text-6xl text-white">Movies</h1>
       <Filter filter={filter} setFilter={setFilter} genres={genres} />
       <div className="phonemin:grid grid-flow-row-dense grid-cols-1 mx-0 relative tabletmin:grid-cols-3 grid-rows-3 items-start">
-        {filteredMovies.map((movie, index) => (
+        {movies.map((movie, index) => (
           <div key={index} className="phonemin:text-center m-5 bg-white rounded-3xl space-y-10">
             <img src={movie.movie_poster} alt={movie.name} className="phonemin:size-auto rounded-3xl"/>
             <h3 className="text-black phonemin:text-xl tabletmin:text-3xl">Name: {movie.name}</h3>
