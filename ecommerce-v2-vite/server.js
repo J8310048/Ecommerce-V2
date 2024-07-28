@@ -81,8 +81,8 @@ app.get("/movies-by-genre/:genreId", (req, res) => {
     const query = `
       SELECT Movies.*
       FROM Movies
-      JOIN movie_genres ON Movies.id = movie_genres.movie_id
-      WHERE movie_genres.genre_id = ?
+      JOIN movie_genre ON Movies.id = movie_genre.movie_id
+      WHERE movie_genre.genre_id = ?
     `;
 
     connection.query(query, [genreId], (error, rows) => {
