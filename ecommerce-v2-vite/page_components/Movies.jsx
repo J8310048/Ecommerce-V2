@@ -21,15 +21,6 @@ function Movies() {
       });
   }, [filter.genre]);
 
-  useEffect(() => {
-    setFilteredMovies(movies.filter(movie => {
-      return (
-        (!filter.genre || movie.genre_id === filter.genre) &&
-        (!filter.price || movie.price <= filter.price)
-      );
-    }));
-  }, [filter, movies]);
-
   return (
     <div className="bg-blue-950">
       <MoviesFetch setMovies={setMovies} />
