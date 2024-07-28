@@ -1,4 +1,5 @@
 import React from 'react';
+import GenreFetch from "../global_components/Genres_Fetch"
 
 const Filter = ({ filter, setFilter, genres }) => {
   const handleGenreChange = (e) => {
@@ -10,17 +11,22 @@ const Filter = ({ filter, setFilter, genres }) => {
   };
 
   return (
-    <div>
-      <label className='text-white'>Genre:</label>
+    <div className='phonemin:flex justify-center gap-x-14 items-center tabletmin:flex-row'>
+      <div>
+        <label className='text-white'>Genre:</label>
       <select value={filter.genre} onChange={handleGenreChange}>
         <option value="">All</option>
         {genres.map((genre) => (
           <option key={genre.id} value={genre.id}>{genre.name}</option>
         ))}
       </select>
-
-      <label className='text-white'>Max Price:</label>
-      <input type="number" value={filter.price} onChange={handlePriceChange} placeholder="Max Price" />
+      </div>
+      
+        <div>
+          <label className='text-white'>Max Price:</label>
+          <input type="number" value={filter.price} onChange={handlePriceChange} placeholder="Max Price" className='text-center'/>
+        </div>
+      
     </div>
   );
 };
