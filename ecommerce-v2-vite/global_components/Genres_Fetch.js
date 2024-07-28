@@ -18,5 +18,3 @@ function GenreFetch({ setGenres }) {
 }
 
 export default GenreFetch;
-
-//
