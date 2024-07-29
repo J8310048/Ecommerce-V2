@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Glider from 'glider-js';
 import 'glider-js/glider.min.css';
 import './MovieCarousel.css'; 
-import 'animate.css';
 
 const movies = [
   {
