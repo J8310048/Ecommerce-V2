@@ -71,7 +71,7 @@ function Movies() {
             
           <div>
             <h2 className="phonemin:text-2xl font-bold tabletmin:text-xl font-Sports">Availability:</h2>
-            <h3 className=" phonemin:text-xl tabletmin:text-lg text-white font-thin">{movie.availability}</h3>
+            <h3 className=" phonemin:text-xl tabletmin:text-lg text-white font-extralight">{movie.availability}</h3>
           </div>
             
           </div>
