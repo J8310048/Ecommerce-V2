@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Glider from 'glider-js';
 import 'glider-js/glider.min.css';
 import './MovieCarousel.css'; 
+import 'animate.css';
 
 const movies = [
   {
@@ -56,16 +57,18 @@ function MovieCarousel() {
       <div className="glider-contain">
         <div className="glider flex">
           {movies.map((movie, index) => (
-            <div key={index} className="p-2">
+            <div key={index} className="p-10">
               <img
-                className="w-1/5 h-auto cursor-pointer mt-96 rounded-3xl"
+                className="phonemin:w-3/5 h-auto cursor-pointer mt-96 rounded-3xl tabletmin:w-1/5"
                 src={movie.poster}
                 alt={movie.title}
                 onClick={() => handleMovieClick(movie.video)}
               />
-              
+
             </div>
+            
           ))}
+          
         </div>
         <button className="glider-prev absolute top-1/2 transform -translate-y-1/2 left-0 bg-slate-400 text-gray-800 p-2 rounded-lg">«</button>
         <button className="glider-next absolute top-1/2 transform -translate-y-1/2 right-0 bg-slate-400 text-gray-800 p-2 rounded-lg">»</button>

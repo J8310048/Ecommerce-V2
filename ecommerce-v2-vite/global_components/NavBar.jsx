@@ -7,7 +7,7 @@ function NavBar() {
 
   return (
     <div className="bg-white text-black">
-      <div className="flex justify-between items-center p-4">
+      <div className="flex justify-between items-center p-4 font-Sports">
         <Logo />
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -29,9 +29,9 @@ function NavBar() {
           </svg>
         </button>
         <nav className="hidden tabletmin:flex space-x-4">
-          <Link to="/">Home</Link>
-          <Link to="/movies">Movies</Link>
-          <Link to="/contact">Contact Us</Link>
+          <Link to="/" className='hover:underline'>Home</Link>
+          <Link to="/movies" className='hover:underline'>Movies</Link>
+          <Link to="/contact" className='hover:underline'>Contact Us</Link>
         </nav>
       </div>
       {isOpen && (

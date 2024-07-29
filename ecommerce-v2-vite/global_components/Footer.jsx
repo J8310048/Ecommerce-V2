@@ -19,7 +19,7 @@ function Footer() {
           onSubmit={handleSubmit(onSubmit)} 
           className="flex flex-col phonemin:w-full max-w-lg text-center m-auto items-center"
         >
-        <h2 className="phonemin:text-5xl mb-5">Join our Newsletter!</h2>
+        <h2 className="phonemin:text-5xl mb-5 font-Sports">Join our Newsletter!</h2>
           <input 
             {...register("Email", { 
               required: "Must fill out Email",
@@ -44,7 +44,7 @@ function Footer() {
 {/* below is are my footer links */}
       <footer className="phonemin:grid grid-flow-row gap-20 tabletmin:grid-flow-col items-center text-center justify-center mt-10 ">
         <div>
-          <h1 className="phonemin:text-2xl font-bold tabletmin:text-xl mb-4">Site Links</h1>
+          <h1 className="phonemin:text-2xl font-bold tabletmin:text-xl mb-4 font-Sports">Site Links</h1>
             <ul className="flex flex-col text-center space-y-2">
            <li>
              <NavLink to="/" className="hover:underline">Home</NavLink>
@@ -64,7 +64,7 @@ function Footer() {
 
 {/* below is are my footer links */}
         <div>
-          <h1 className="phonemin:text-2xl font-bold tabletmin:text-xl mb-4">Website Services</h1>
+          <h1 className="phonemin:text-2xl font-bold tabletmin:text-xl mb-4 font-Sports">Website Services</h1>
             <ul className="flex flex-col text-center space-y-2">
            <li>
            <a className="hover:underline" href="/">FAQ</a>
@@ -84,7 +84,7 @@ function Footer() {
 
 {/* below is are my footer links */}
         <div>
-          <h1 className="phonemin:text-2xl font-bold tabletmin:text-xl mb-4">Purchase Rules</h1>
+          <h1 className="phonemin:text-2xl font-bold tabletmin:text-xl mb-4 font-Sports">Purchase Rules</h1>
             <ul className="flex flex-col text-center space-y-2">
            <li>
            <a className="hover:underline" href="/">Bidding</a>

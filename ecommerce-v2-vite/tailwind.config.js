@@ -9,28 +9,20 @@ module.exports = {
   theme: {
     screens: {
       phonemin: '375px',
-      // => @media (min-width: 375px) { ... }
-
       phonemax: '425px',
-      // => @media (min-width: 425px) { ... }
-
       tabletmin: '640px',
-      // => @media (min-width: 640px) { ... }
-
       tabletmax: '768px',
-      // => @media (min-width: 768px) { ... }
-
       laptop: '1024px',
-      // => @media (min-width: 1024px) { ... }
-
       desktop: '1280px',
-      // => @media (min-width: 1280px) { ... }
-    }, 
-
+    },
+    fontFamily: {
+      Sports: ["Sports", "sans-serif"]
+    },
     extend: {
-      border: "border-2 border-rich-black border-solid"
+      border: {
+        custom: "2px solid #001F3F" // or whatever color you prefer
+      },
     },
   },
-  
   plugins: [],
 };
