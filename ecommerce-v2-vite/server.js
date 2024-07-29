@@ -44,6 +44,7 @@ app.get("/", (req, res) => {
   });
 });
 
+
 app.get("/genres", (req, res) => {
   pool.getConnection((err, connection) => {
     if (err) {
@@ -51,6 +52,7 @@ app.get("/genres", (req, res) => {
       res.status(500).json({ error: "Internal Server Error" });
       return;
     }
+    
 
     connection.query("SELECT * FROM Genre", (error, rows) => {
       connection.release(); // Release the connection back to the pool
@@ -60,7 +62,7 @@ app.get("/genres", (req, res) => {
         res.status(500).json({ error: "Error retrieving information" });
         return;
       }
-
+      console.log(rows)
       res.json(rows);
     });
   });
@@ -70,7 +72,8 @@ app.get("/genres", (req, res) => {
 
 app.get("/movies-by-genre/:genreId", (req, res) => {
   const genreId = req.params.genreId;
-
+  console.log("Received request for genreId:", genreId)
+  
   pool.getConnection((err, connection) => {
     if (err) {
       console.error("Error getting connection from pool:", err);
@@ -93,6 +96,10 @@ app.get("/movies-by-genre/:genreId", (req, res) => {
         res.status(500).json({ error: "Error retrieving information" });
         return;
       }
+
+      // const priceMax = req.query.priceMax;
+      // console.log("Here's the maximum price:", priceMax)
+      // res.send("Search results:", priceMax);
 
       res.json(rows);
     });

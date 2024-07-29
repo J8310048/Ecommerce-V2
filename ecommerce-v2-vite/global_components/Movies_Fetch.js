@@ -6,6 +6,7 @@ function MoviesFetch({ setMovies }) {
     // Fetch movies from backend API
     axios
       .get(`https://laserfocus-disc-and-co-backend-server.onrender.com/`)
+      // http://localhost:3001/
       .then((response) => {
         console.log("API response:", response.data); // Log the response data
         if (Array.isArray(response.data)) {

@@ -1,5 +1,4 @@
 import React from 'react';
-import GenreFetch from "../global_components/Genres_Fetch"
 
 const Filter = ({ filter, setFilter, genres }) => {
   const handleGenreChange = (e) => {

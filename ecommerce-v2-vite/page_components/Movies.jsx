@@ -10,10 +10,12 @@ function Movies() {
   const [genres, setGenres] = useState([]);
 
   useEffect(() => {
-    let url = `https://laserfocus-disc-and-co-backend-server.onrender.com`;
+    let url = `https://laserfocus-disc-and-co-backend-server.onrender.com/`;
+    // http://localhost:3001/
     if(filter.genre) {
       url += `/movies-by-genre/${filter.genre}?priceMax=${filter.price}` //pass priceMax into your query. Research for tomorrow. hint: console.log request on /movies-by-genre on server
     }
+    
     axios
       .get(url)
       .then((response) => {
@@ -25,7 +27,7 @@ function Movies() {
   }, [filter.genre]);
 
 
-console.log(movies);
+
   return (    
   <div className="bg-blue-950">
       <MoviesFetch setMovies={setMovies} />
@@ -36,13 +38,26 @@ console.log(movies);
         {movies.map((movie, index) => (
           <div key={index} className="phonemin:text-center m-10 bg-white rounded-3xl space-y-10 overflow-scroll object-contain h-4/5">
             <img src={movie.movie_poster} alt={movie.name} className="phonemin:size-auto rounded-3xl"/>
-            <h3 className=" phonemin:text-xl tabletmin:text-lg"><span className="phonemin:text-2xl font-bold tabletmin:text-xl">Name:</span> {movie.name}</h3>
-            <h3 className=" phonemin:text-xl tabletmin:text-lg"><span className="phonemin:text-2xl font-bold tabletmin:text-xl">Price:</span> {movie.price}</h3>
-            <h3 className=" phonemin:text-xl tabletmin:text-lg"><span className="phonemin:text-2xl font-bold tabletmin:text-xl">Bid Amount:</span> {movie.bid}</h3>
-            <h3 className=" phonemin:text-xl tabletmin:text-lg tabletmax: desktop:"><span className="phonemin:text-2xl font-bold tabletmin:text-xl">Movie Synopsis:</span> {movie.movie_synopsis}</h3>
-            <h3 className=" phonemin:text-xl tabletmin:text-lg"><span className="phonemin:text-2xl font-bold tabletmin:text-xl">Release Date:</span> {movie.release_date}</h3>
-            <h3 className=" phonemin:text-xl tabletmin:text-lg"><span className="phonemin:text-2xl font-bold tabletmin:text-xl">Genre:</span> {movie.genre_id}</h3>
-            <h3 className=" phonemin:text-xl tabletmin:text-lg"><span className="phonemin:text-2xl font-bold tabletmin:text-xl">Availability:</span> <span className="text-green-500">{movie.availability}</span></h3>
+            <h2 className="phonemin:text-2xl font-bold tabletmin:text-xl">Name:</h2>
+            <h3 className=" phonemin:text-xl tabletmin:text-lg">{movie.name}</h3>
+
+            <h2 className="phonemin:text-2xl font-bold tabletmin:text-xl">Price:</h2> 
+            <h3 className=" phonemin:text-xl tabletmin:text-lg">{movie.price}</h3>
+
+            <h2 className="phonemin:text-2xl font-bold tabletmin:text-xl">Bid Amount:</h2> 
+            <h3 className=" phonemin:text-xl tabletmin:text-lg">{movie.bid}</h3>
+
+            <h2 className="phonemin:text-2xl font-bold tabletmin:text-xl">Movie Synopsis:</h2> 
+            <h3 className=" phonemin:text-xl tabletmin:text-lg tabletmax: desktop:">{movie.movie_synopsis}</h3>
+
+            <h2 className="phonemin:text-2xl font-bold tabletmin:text-xl">Release Date:</h2>
+            <h3 className=" phonemin:text-xl tabletmin:text-lg">{movie.release_date}</h3>
+
+            <h2 className="phonemin:text-2xl font-bold tabletmin:text-xl">Genre:</h2>
+            <h3 className=" phonemin:text-xl tabletmin:text-lg">{movie.genre_id}</h3>
+            
+            <h2 className="phonemin:text-2xl font-bold tabletmin:text-xl">Availability:</h2>
+            <h3 className=" phonemin:text-xl tabletmin:text-lg text-green-500">{movie.availability}</h3>
           </div>
           ))}
    </div>

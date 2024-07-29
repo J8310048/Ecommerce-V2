@@ -5,6 +5,7 @@ function GenreFetch({ setGenres }) {
   useEffect(() => {
     axios
       .get(`https://laserfocus-disc-and-co-backend-server.onrender.com/genres`)
+      // http://localhost:3001/genres
       .then((response) => {
         console.log("API response:", response.data);
         setGenres(response.data); // Update genres state with data from backend
