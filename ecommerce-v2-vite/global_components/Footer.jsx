@@ -45,7 +45,7 @@ function Footer() {
       <footer className="phonemin:grid grid-flow-row gap-20 tabletmin:grid-flow-col items-center text-center justify-center mt-10 ">
         <div>
           <h1 className="phonemin:text-2xl font-bold tabletmin:text-xl mb-4 font-Sports">Site Links</h1>
-            <ul className="flex flex-col text-center space-y-2">
+            <ul className="flex flex-col text-center space-y-2 font-thin">
            <li>
              <NavLink to="/" className="hover:underline">Home</NavLink>
           </li>
@@ -65,7 +65,7 @@ function Footer() {
 {/* below is are my footer links */}
         <div>
           <h1 className="phonemin:text-2xl font-bold tabletmin:text-xl mb-4 font-Sports">Website Services</h1>
-            <ul className="flex flex-col text-center space-y-2">
+            <ul className="flex flex-col text-center space-y-2 font-thin">
            <li>
            <a className="hover:underline" href="/">FAQ</a>
           </li>
@@ -85,7 +85,7 @@ function Footer() {
 {/* below is are my footer links */}
         <div>
           <h1 className="phonemin:text-2xl font-bold tabletmin:text-xl mb-4 font-Sports">Purchase Rules</h1>
-            <ul className="flex flex-col text-center space-y-2">
+            <ul className="flex flex-col text-center space-y-2 font-thin">
            <li>
            <a className="hover:underline" href="/">Bidding</a>
           </li>
