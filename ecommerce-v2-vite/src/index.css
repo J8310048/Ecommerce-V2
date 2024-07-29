@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Sports';
-    src: url('/public/Fonts/sf-sports-night.regular.ttf') format('truetype');
+    src: url('/Fonts/sf-sports-night.regular.ttf') format('truetype');
 }
 
 @tailwind base;
