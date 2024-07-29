@@ -56,7 +56,7 @@ function ContactForm() {
           <input 
             type="submit" 
             value="Submit"
-            className="rounded-full text-center bg-slate-600 text-white p-2 cursor-pointer"
+            className="rounded-full text-center bg-slate-600 text-white p-2 cursor-pointer hover:bg-red-600"
           />
         </form>
       </div>
