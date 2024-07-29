@@ -100,12 +100,24 @@ function Footer() {
             </li>
           </ul>
         </div>
+
+
+        
       
-{/* below is are my social media links */}
+
+
       </footer>
+      <div>
+        <p className="text-center
+font-thin phonemin:px-16 mt-10 tabletmin:px-20 laptop:px-60 desktop:px-96">© 2024 Laser Focus Disc & Co. All footage used is the property of the respective studios: Pixar Animation Studios, Walt Disney Pictures, Paramount Pictures, Columbia Pictures, Metro-Goldwyn-Mayer (MGM), Universal Pictures, Warner Bros., and 20th Century Fox. All rights reserved.</p>
+
+        </div>
+        {/* below is are my social media links */}
       <div className="flex flex-row items-center justify-center">
           <Socials />
         </div>
+
+        
       
     </div>
   );
