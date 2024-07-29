@@ -10,8 +10,8 @@ const Filter = ({ filter, setFilter, genres }) => {
   };
 
   return (
-    <div className='phonemin:flex justify-center gap-x-14 items-center tabletmin:flex-row'>
-      <div>
+    <div className='phonemin:flex flex-row gap-x-5 justify-center items-center tabletmin:gap-x-16'>
+      <div className='flex flex-col items-center'>
         <label className='text-white'>Genre:</label>
       <select value={filter.genre} onChange={handleGenreChange}>
         <option value="">All</option>
@@ -21,9 +21,9 @@ const Filter = ({ filter, setFilter, genres }) => {
       </select>
       </div>
       
-        <div>
+        <div className='flex flex-col items-center'>
           <label className='text-white'>Max Price:</label>
-          <input type="number" value={filter.price} onChange={handlePriceChange} placeholder="Max Price" className='text-center'/>
+          <input type="number" value={filter.price} onChange={handlePriceChange} placeholder="Enter Amount" className='text-center'/>
         </div>
       
     </div>
