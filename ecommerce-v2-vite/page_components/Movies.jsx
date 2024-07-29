@@ -41,37 +41,37 @@ function Movies() {
             <img src={movie.movie_poster} alt={movie.name} className="phonemin:size-auto rounded-3xl"/>
             <div>
                 <h2 className="phonemin:text-2xl font-bold tabletmin:text-xl font-Sports">Name:</h2>
-                <h3 className=" phonemin:text-xl tabletmin:text-lg">{movie.name}</h3>
+                <h3 className=" phonemin:text-xl tabletmin:text-lg font-thin">{movie.name}</h3>
             </div>
             
             <div>
                 <h2 className="phonemin:text-2xl font-bold tabletmin:text-xl font-Sports">Price:</h2> 
-                <h3 className=" phonemin:text-xl tabletmin:text-lg">{movie.price}</h3>
+                <h3 className=" phonemin:text-xl tabletmin:text-lg font-thin">{movie.price}</h3>
             </div>
             
             <div>
             <h2 className="phonemin:text-2xl font-bold tabletmin:text-xl font-Sports">Bid Amount:</h2> 
-            <h3 className=" phonemin:text-xl tabletmin:text-lg">{movie.bid}</h3>
+            <h3 className=" phonemin:text-xl tabletmin:text-lg font-thin">{movie.bid}</h3>
             </div>
             
           <div>
             <h2 className="phonemin:text-2xl font-bold tabletmin:text-xl font-Sports">Movie Synopsis:</h2> 
-            <h3 className=" phonemin:text-xl tabletmin:text-lg tabletmax: desktop:">{movie.movie_synopsis}</h3>
+            <h3 className=" phonemin:text-xl tabletmin:text-lg font-light">{movie.movie_synopsis}</h3>
           </div>
             
           <div>
             <h2 className="phonemin:text-2xl font-bold tabletmin:text-xl font-Sports">Release Date:</h2>
-            <h3 className=" phonemin:text-xl tabletmin:text-lg">{movie.release_date}</h3>
+            <h3 className=" phonemin:text-xl tabletmin:text-lg font-thin">{movie.release_date}</h3>
           </div>
             
           <div>
             <h2 className="phonemin:text-2xl font-bold tabletmin:text-xl font-Sports">Genre:</h2>
-            <h3 className=" phonemin:text-xl tabletmin:text-lg">{movie.genre_id}</h3>
+            <h3 className=" phonemin:text-xl tabletmin:text-lg font-thin">{movie.genre_id}</h3>
           </div>
             
           <div>
             <h2 className="phonemin:text-2xl font-bold tabletmin:text-xl font-Sports">Availability:</h2>
-            <h3 className=" phonemin:text-xl tabletmin:text-lg text-white">{movie.availability}</h3>
+            <h3 className=" phonemin:text-xl tabletmin:text-lg text-white font-thin">{movie.availability}</h3>
           </div>
             
           </div>
