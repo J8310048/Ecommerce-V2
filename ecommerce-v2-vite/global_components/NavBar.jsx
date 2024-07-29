@@ -38,13 +38,13 @@ function NavBar() {
         <nav className="tabletmin:hidden">
           <ul className="flex flex-col items-center p-4">
             <li className="p-2">
-              <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
+              <Link to="/" className="font-Sports" onClick={() => setIsOpen(false)}>Home</Link>
             </li>
             <li className="p-2">
-              <Link to="/movies" onClick={() => setIsOpen(false)}>Movies</Link>
+              <Link to="/movies" className="font-Sports" onClick={() => setIsOpen(false)}>Movies</Link>
             </li>
             <li className="p-2">
-              <Link to="/contact" onClick={() => setIsOpen(false)}>Contact Us</Link>
+              <Link to="/contact" className="font-Sports" onClick={() => setIsOpen(false)}>Contact Us</Link>
             </li>
           </ul>
         </nav>
