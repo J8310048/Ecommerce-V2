@@ -23,6 +23,8 @@ app.use(cors());
 
 
 app.get("/", (req, res) => {
+  const priceMax = req?.query?.priceMax
+
   pool.getConnection((err, connection) => {
     if (err) {
       console.error("Error getting connection from pool:", err);
@@ -30,7 +32,12 @@ app.get("/", (req, res) => {
       return;
     }
 
-    connection.query("SELECT * FROM Movies", (error, rows) => {
+    let query = "SELECT * FROM Movies ";
+    if(priceMax) {
+      query += `WHERE Movies.price < ${Number(priceMax)}`
+    }
+
+    connection.query(query, (error, rows) => {
       connection.release(); // Release the connection back to the pool
 
       if (error) {
@@ -73,7 +80,10 @@ app.get("/genres", (req, res) => {
 app.get("/movies-by-genre/:genreId", (req, res) => {
   const genreId = req.params.genreId;
   console.log("Received request for genreId:", genreId)
-  
+  console.log("Here's my data:", req);
+  console.log("Here's my data:", req.query);
+  const priceMax = req?.query?.priceMax
+  console.log("This is price max:", priceMax)
   pool.getConnection((err, connection) => {
     if (err) {
       console.error("Error getting connection from pool:", err);
@@ -81,12 +91,15 @@ app.get("/movies-by-genre/:genreId", (req, res) => {
       return;
     }
 
-    const query = `
+    let query = `
       SELECT Movies.*
       FROM Movies
       JOIN movie_genre ON Movies.id = movie_genre.movie_id
       WHERE movie_genre.genre_id = ?
     `;
+    if(priceMax) {
+      query += `AND Movies.price < ${Number(priceMax)}`
+    }
 
     connection.query(query, [genreId], (error, rows) => {
       connection.release(); // Release the connection back to the pool
@@ -96,10 +109,6 @@ app.get("/movies-by-genre/:genreId", (req, res) => {
         res.status(500).json({ error: "Error retrieving information" });
         return;
       }
-
-      // const priceMax = req.query.priceMax;
-      // console.log("Here's the maximum price:", priceMax)
-      // res.send("Search results:", priceMax);
 
       res.json(rows);
     });

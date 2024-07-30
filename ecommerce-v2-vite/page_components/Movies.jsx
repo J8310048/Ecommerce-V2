@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import MoviesFetch from "../global_components/Movies_Fetch";
-import GenreFetch from "../global_components/Genres_Fetch";
 import Filter from "../global_components/Filter";
 import axios from "axios";
 
@@ -10,11 +8,16 @@ function Movies() {
   const [filter, setFilter] = useState({ genre: '', price: '' });
   const [genres, setGenres] = useState([]);
 
+console.log(import.meta.env)
+
   useEffect(() => {
-    let url = `https://laserfocus-disc-and-co-backend-server.onrender.com/`;
-    // http://localhost:3001/
+    let url = `${import.meta.env.VITE_APP_server_API_url}`;
     if(filter.genre) {
-      url += `/movies-by-genre/${filter.genre}?priceMax=${filter.price}` //pass priceMax into your query. Research for tomorrow. hint: console.log request on /movies-by-genre on server
+      url += `/movies-by-genre/${filter.genre}` 
+      //pass priceMax into your query. Research for tomorrow. hint: console.log request on /movies-by-genre on server
+    }
+    if(filter.price) {
+      url += `?priceMax=${filter.price}`
     }
     
     axios
@@ -25,14 +28,27 @@ function Movies() {
       .catch((error) => {
         console.error("Error fetching movies:", error);
       });
-  }, [filter.genre]);
+  }, [filter.genre, filter.price]);
 
 
+  useEffect(() => {
+      let genreUrl = `${import.meta.env.VITE_APP_server_API_url}/genres`;
+      
+      axios
+      .get(genreUrl)
+      .then((response) => {
+        console.log("API response:", response.data);
+        setGenres(response.data); // Update genres state with data from backend
+      })
+      .catch((error) => {
+        console.error("Error fetching genres:", error);
+      });
+  }, []);
+
+console.log(movies)
 
   return (    
   <div className="bg-blue-950">
-      <MoviesFetch setMovies={setMovies} />
-      <GenreFetch setGenres={setGenres} />
       <h1 className="phonemin:text-center py-10 text-4xl tabletmin:text-6xl text-white font-Sports">Movies</h1>
       <Filter filter={filter} setFilter={setFilter} genres={genres} />
       <div className="phonemin:grid gap-x-5 grid-flow-row-dense grid-cols-1 mx-0 relative tabletmin:grid-cols-3 grid-rows-3 items-start">
@@ -64,10 +80,10 @@ function Movies() {
             <h3 className=" phonemin:text-xl tabletmin:text-lg font-thin">{movie.release_date}</h3>
           </div>
             
-          <div>
+          {/* <div>
             <h2 className="phonemin:text-2xl font-bold tabletmin:text-xl font-Sports">Genre:</h2>
             <h3 className=" phonemin:text-xl tabletmin:text-lg font-thin">{movie.genre_id}</h3>
-          </div>
+          </div> */}
             
           <div>
             <h2 className="phonemin:text-2xl font-bold tabletmin:text-xl font-Sports">Availability:</h2>
