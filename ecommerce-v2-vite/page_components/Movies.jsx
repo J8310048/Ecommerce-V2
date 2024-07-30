@@ -10,6 +10,7 @@ function Movies() {
 
 console.log(import.meta.env)
 
+// this useEffect is used to pull movies by genre
   useEffect(() => {
     let url = `${import.meta.env.VITE_APP_server_API_url}`;
     if(filter.genre) {
@@ -30,7 +31,7 @@ console.log(import.meta.env)
       });
   }, [filter.genre, filter.price]);
 
-
+// this useEffect is used to power the genre filter dropdown by fetching the genre data
   useEffect(() => {
       let genreUrl = `${import.meta.env.VITE_APP_server_API_url}/genres`;
       
@@ -45,13 +46,17 @@ console.log(import.meta.env)
       });
   }, []);
 
-console.log(movies)
+
 
   return (    
   <div className="bg-blue-950">
       <h1 className="phonemin:text-center py-10 text-4xl tabletmin:text-6xl text-white font-Sports">Movies</h1>
-      <Filter filter={filter} setFilter={setFilter} genres={genres} />
+
+      <Filter filter={filter} setFilter={setFilter} genres={genres} /> {/* to the left is my Filter component*/}
+
       <div className="phonemin:grid gap-x-5 grid-flow-row-dense grid-cols-1 mx-0 relative tabletmin:grid-cols-3 grid-rows-3 items-start">
+        
+        {/* below I'm mapping over my movies array to display product information using my database */}
         {movies.map((movie, index) => (
           <div key={index} className="phonemin:text-center m-10 bg-slate-400 rounded-3xl space-y-10 overflow-scroll object-contain h-4/5">
             <img src={movie.movie_poster} alt={movie.name} className="phonemin:size-auto rounded-3xl"/>
@@ -79,11 +84,6 @@ console.log(movies)
             <h2 className="phonemin:text-2xl font-bold tabletmin:text-xl font-Sports">Release Date:</h2>
             <h3 className=" phonemin:text-xl tabletmin:text-lg font-thin">{movie.release_date}</h3>
           </div>
-            
-          {/* <div>
-            <h2 className="phonemin:text-2xl font-bold tabletmin:text-xl font-Sports">Genre:</h2>
-            <h3 className=" phonemin:text-xl tabletmin:text-lg font-thin">{movie.genre_id}</h3>
-          </div> */}
             
           <div>
             <h2 className="phonemin:text-2xl font-bold tabletmin:text-xl font-Sports">Availability:</h2>
