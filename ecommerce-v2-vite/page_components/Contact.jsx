@@ -5,7 +5,7 @@ function Contact() {
       <section className="min-h-screen bg-blue-950 flex flex-col">
       <div className="phonemin: mt-28">
         <h1 className="text-center text-6xl font-Sports text-white">Join Our Community!</h1>
-        <ContactForm className="flex-grow"/>
+        <ContactForm/>
       </div>
     </section>
     

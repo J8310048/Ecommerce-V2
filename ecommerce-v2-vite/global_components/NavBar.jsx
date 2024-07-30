@@ -1,18 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import Logo from '../global_components/Logo';
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
-
-  let icon;
-  if (isOpen) {
-    icon = faTimes;
-  } else {
-    icon = faBars;
-  }
 
   return (
     <div className="bg-white text-black">
@@ -22,7 +13,20 @@ function NavBar() {
           onClick={() => setIsOpen(!isOpen)}
           className="tabletmin:hidden focus:outline-none"
         >
-          <FontAwesomeIcon icon={icon} className="w-6 h-6" />
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+            ></path>
+          </svg>
         </button>
         <nav className="hidden tabletmin:flex space-x-4">
           <Link to="/" className='hover:underline'>Home</Link>
