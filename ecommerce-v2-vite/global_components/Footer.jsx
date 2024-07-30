@@ -29,7 +29,7 @@ function Footer() {
               }
             })} 
             placeholder="Email" 
-            className="border mb-4 p-2 rounded"
+            className="border mb-4 p-2 rounded text-black"
           />
           {errors.Email && <p className="text-red-500">{errors.Email.message}</p>}
           
